@@ -1,7 +1,24 @@
 '''
 Segment problem:
 We define a subarray of size x in n-element array to be a contiguous block
-of elements in the inclusive range from index i to index j, where j 
+of elements in the inclusive range from index i to index j, where
+j -i + 1 = x and 0 <= i <= j < n.
+
+For example, given array arr=[8,2,4], the subarrays of size x=2 would be
+[8,2] and [2,4]. The minimum values of the two subarrays are [2,2]. The maximum
+of those two minimum values is 2. This is the value you want to determine.
+
+Sample input:
+x = 1
+arr = [1,2 ,3, 1, 2]
+
+Sample output:
+3
+
+The subarrays of size x = 1 are [1], [2], [3], [1] and [2].
+Because each subarray only contains 1 element, each value is minimal
+with respect to the subarray it is in. We return the maximum of these values,
+which is 3.
 '''
 
 
