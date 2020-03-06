@@ -15,7 +15,12 @@ def sortAlienLanguage(words, order):
     for i in range(len(order)):
         alphabet.append(ord(order[i]) - ord('a'))
 
+    return secondMethod(alphabet, words)#firstMethod(alphabet, words)
 
+
+
+
+def firstMethod(alphabet, words):
     '''
     First, we go through our words and compare i-th words to every other j-th words
     '''
@@ -63,6 +68,41 @@ def sortAlienLanguage(words, order):
     
     return True
 
+
+def secondMethod(alphabet, words):
+    '''
+    Second method removes the extra j loop by comparing words[i] and words[i +1]
+    '''
+    
+    i = 1
+    for i in range(i, len(words)):
+
+        if compareWords(words[i - 1], words[i], alphabet) > 0:
+            return False
+        
+    return True
+
+def compareWords(firstWord, secondWord, alphabet):
+
+    i = 0
+    j = 0
+    compare = 0
+
+    ichar = firstWord[i]
+    jchar = secondWord[j]
+
+    while i < len(firstWord) and j < len(secondWord) and compare == 0:
+
+        compare = (alphabet[ord(ichar) - ord('a')]) - (alphabet[ord(jchar) - ord('a')])
+
+        i = i + 1
+        j = j + 1
+
+    if compare == 0:
+        return len(firstWord) - len(secondWord)
+    else:
+        return compare
+        
 
 if __name__ == '__main__':
 
