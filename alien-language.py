@@ -15,7 +15,7 @@ def sortAlienLanguage(words, order):
     for i in range(len(order)):
         alphabet.append(ord(order[i]) - ord('a'))
 
-    return secondMethod(alphabet, words)#firstMethod(alphabet, words)
+    return secondMethod(alphabet, words) #firstMethod(alphabet, words) 
 
 
 
@@ -25,10 +25,8 @@ def firstMethod(alphabet, words):
     First, we go through our words and compare i-th words to every other j-th words
     '''
     for i in range(len(words)):
-
-        j = i + 1
        
-        for j in range(j, len(words)):
+        for j in range(i + 1, len(words)):
             '''
             Since the length of each word may vary, we need to make sure 
             to avoid out-of-bounds error as we traverse each k-th character 
@@ -42,10 +40,8 @@ def firstMethod(alphabet, words):
             and return true if the characters' k-th positions are sorted
             according to the order of the alien language.
             '''
-           
-            k = 0
 
-            for k in range(k, minLength):
+            for k in range(0, minLength):
 
                 '''
                 we check each k-th character from each i-th and j-th word
@@ -73,9 +69,8 @@ def secondMethod(alphabet, words):
     '''
     Second method removes the extra j loop by comparing words[i] and words[i +1]
     '''
-    
-    i = 1
-    for i in range(i, len(words)):
+
+    for i in range(1, len(words)):
 
         if compareWords(words[i - 1], words[i], alphabet) > 0:
             return False
