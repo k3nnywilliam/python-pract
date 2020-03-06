@@ -95,8 +95,8 @@ def compareWords(firstWord, secondWord, alphabet):
 
         compare = (alphabet[ord(ichar) - ord('a')]) - (alphabet[ord(jchar) - ord('a')])
 
-        i = i + 1
-        j = j + 1
+        i += 1
+        j += 1
 
     if compare == 0:
         return len(firstWord) - len(secondWord)
